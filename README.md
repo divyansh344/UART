@@ -36,14 +36,14 @@
 
 ## 🚦 Transmitter (TX) State Description
 
-1. **idle** – Default state, TX line high, waiting for start signal.
-2. **send** – Serially sends start, data, and stop bits on slower clock edge.
-3. **check** – Waits for the active clock edge before sending the next bit.
+1. **idle** – Default state, TX line high, waiting for start signal, once start signal is received , goes to `send`.
+2. **send** – Serially sends start, data, and stop bits on TX line on slower clock edge.
+3. **check** – Waits for the arrival of active clock edge on slower clock before sending the next bit.
 
 ## 📥 Receiver (RX) State Description
 
 1. **r_idle** – RX line is high; on detecting start bit (low), goes to `r_wait`.
-2. **r_wait** – Waits for half-bit time for correct sampling, then transitions.
+2. **r_wait** – Waits for the start of bit duration, then transitions to `receive`
 3. **receive** – Captures bits at the middle of each bit duration. Once the stop bit is received, `rx_done` is high and 8-bit data is output on `rx_out`.
 
 ## 🔁 Full-Duplex Operation
