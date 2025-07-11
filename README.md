@@ -1,52 +1,52 @@
 # Verilog Based Universal Asynchronous Receiver Transmitter (UART)
 <br>
 <br>
-# Author - Divyansh Tripathi
+## Author - Divyansh Tripathi
 <br>
 <br>
-# Features of UART:-
+## Features of UART:-
 <br>
 <br>
-1> UART is a hardware communication protocol used for short distance asynchronous serial communication between devices.
+> UART is a hardware communication protocol used for short distance asynchronous serial communication between devices.
 <br>
 <br>
-2> It transmits and receives data one bit at a time (serially) over a single wire, without the need for a clock signal (asynchronous mode).
+> It transmits and receives data one bit at a time (serially) over a single wire, without the need for a clock signal (asynchronous mode).
 <br>
 <br>
-3> Data transmission is framed with start bit, data bits (5 - 9 bits), stop bits and optional parity bit, enabling reliable communication even without a shared clock.
+> Data transmission is framed with start bit, data bits (5 - 9 bits), stop bits and optional parity bit, enabling reliable communication even without a shared clock.
 <br>
 <br>
-4> UART typically consists of two main components:
+## UART typically consists of two main components:
 <br>
 <br>
-+ Transmitter (TX) - Converts parallel data from the system into serial form for transmission.
+> Transmitter (TX) - Converts parallel data from the system into serial form for transmission.
 <br>
 <br>
 + Receiver (RX) - Converts incoming serial data back into parallel form for the system.
 <br>
 <br>
-5> Commonly used for short-distance, low-speed, full-duplex serial communication between microcontrollers, sensors, GPS modules, Bluetooth devices, and PCs.
+> Commonly used for short-distance, low-speed, full-duplex serial communication between microcontrollers, sensors, GPS modules, Bluetooth devices, and PCs.
 <br>
 <br>
-# I have implemented a Verilog based UART with the following features:
+## I have implemented a Verilog based UART with the following features:
 <br>
 <br>
-> full duplex mode - The transmitter is sending the serial data to the receiver and the receiver is receiving the serial data at the same time (in a loopback form) so both operations are being performed at the same time.
+> full duplex mode - The transmitter is sending the serial data to the receiver and the receiver is receiving the  same serial data at the same time (in a loopback form) 
 <br>
 <br>
 > The UART is being operated on a Baud Rate of 9600 bits per second with a global clock of frequency 1 MHz.
 <br>
 <br>
-3 The Baud Rate determines the speed of data transmission which includes the data bits as well as start and stop bits.
+> The Baud Rate determines the speed of data transmission which includes the data bits as well as start and stop bits.
 <br>
 <br>
-4 The data frame consits of a start bit (0), 8 data bits and a stop bit (1).
+> The data frame consits of a start bit (0), 8 data bits and a stop bit (1).
 <br>
 <br>
 > A slower clock is generated based on the desired Baud Rate with the help of the global clock. The slower clock determines when the data bits have to be captured by the uart. 
 <br>
 <br>
-# The following ports are present in the module:
+## The following ports are present in the module:
 <br>
 <br>
 1> clk - global clock for generating the slower clock.
@@ -73,7 +73,7 @@
 8> rx_out - to send 8 bit serial data received  into paralle form to the system.
 <br>
 <br>
-# The Transmitter (TX) operation is described by the following states:
+## The Transmitter (TX) operation is described by the following states:
 <br>
 <br>
 1> idle - TX is in idle state in which no transmission operation is being performed. The start signal is low and the tx line is kept at high level. as soon as start signal is high the start bit (0) is received by the line and it marks the transition to the next state - send.
@@ -85,7 +85,7 @@
 3> check - in this state the transmitter waits for the active clock edge of slower clock to arrive (bit_done = 1 marks the arrival of active clock edge) and then it transitions to send state.
 <br>
 <br>
-# The Receiver operation is described by the following states:
+## The Receiver operation is described by the following states:
 <br>
 <br>
 1> r_idle - this is same as of transmitter . the rx line is kept at high level in r_idle state and soon as the start bit is received ( rx line becoming low) the receiver enters into r_wait state.
@@ -97,10 +97,10 @@
 3> receive - in this state the receiver waits for the middle of bit duration to arrive (bit_done = 1). then it stores the data bit into a 10 bit ( which includes start, stop and 8 data bits) right shift serial in parallel out register. once the data bit is captured it again moves into r_wait state and the operation continues till the stop bit is received and once the stop bit is received the rx_done signal is high,  rx_out receives the 8 bit parallel data.  The receiver again enters into r_idle state.
 <br>
 <br>
-# In the testbench same signals are applied to tx and rx pins due to which the transmitter and receiver are working simultaneously (full-duplex mode) in a loopback form. 
+## In the testbench same signals are applied to tx and rx pins due to which the transmitter and receiver are working simultaneously (full-duplex mode) in a loopback form. 
 <br>
 <br>
-# To view the simulation waveform follow these steps:-
+## To view the simulation waveform follow these steps:-
 <br>
 <br>
 > save the uart_gtkwave.gtkw file
@@ -118,7 +118,7 @@
 > select the ports to view the waveforms.
 <br>
 <br>
-# Files present in the repository:-
+## Files present in the repository:-
 <br>
 <br>
 > uart.v - dut module
