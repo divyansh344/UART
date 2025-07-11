@@ -1,0 +1,29 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+[*] Fri Jul 11 17:24:38 2025
+[*]
+[dumpfile] "D:\GitDemo\UART\uart.vcd"
+[dumpfile_mtime] "Fri Jul 11 17:19:12 2025"
+[dumpfile_size] 496805
+[savefile] "D:\GitDemo\UART\uart_gtkwave.gtkw"
+[timestart] 78930000
+[size] 1536 793
+[pos] -139 -139
+*-22.103617 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 197
+[signals_width] 118
+[sst_expanded] 1
+[sst_vpaned_height] 221
+@28
+testbench.start
+testbench.clk
+@22
+testbench.tx_in[7:0]
+@28
+testbench.txrx
+testbench.tx_done
+testbench.rx_done
+@23
+testbench.rx_out[7:0]
+[pattern_trace] 1
+[pattern_trace] 0
